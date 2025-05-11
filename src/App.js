@@ -1,20 +1,29 @@
-const products = [
-  { title: 'Cabbage', id: 1 },
-  { title: 'Garlic', id: 2 },
-  { title: 'Apple', id: 3 },
-];
-
-export default function Profile() {
-  const listItems = products.map((product) => (
-    <li key={product.id}>
-      {product.title}
-    </li>
-  ));
+import { useState } from 'react';
+export default function App() {
   return (
     <>
-      <ul>
-        {listItems}
-      </ul>
+      <MyButton />
+      <MyButton />
+
     </>
   );
+}
+
+
+function MyButton() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <div>
+      <button onClick={handleClick}>
+        Click me!
+      </button>
+      <p>You clicked {count} time/s</p>
+    </div>
+  );
+
 }
